@@ -33,16 +33,16 @@ const typeDefs = gql`
     LARGE
   }
 
-  type TripUpdateResponse {
-    success: Boolean!
-    message: String
-    launches: [Launch]
-  }
-
   "Defines queries that clients can execute against the data graph in order to fetch data"
   type Query {
     "Returns an array of all upcoming launches"
-    launches: [Launch]!
+    launches(
+      "The number of results to show. Must be >= 1. Default = 20"
+      pageSize: Int
+
+      "If you add a cursor here, it will only return results _after_ this cursor"
+      after: String
+    ): LaunchConnection!
 
     "Returns a single launch that corresponds to the id argument provided to the query"
     launch(id: ID!): Launch
@@ -61,6 +61,24 @@ const typeDefs = gql`
 
     "Enables a user to log in by providing their email address."
     login(email: String): User
+  }
+
+  type TripUpdateResponse {
+    success: Boolean!
+    message: String
+    launches: [Launch]
+  }
+
+  """
+  Simple wrapper around our list of launches that contains a cursor to the
+  last item in the list. Pass this cursor to the launches query to fetch results
+  after these.
+  """
+  type LaunchConnection {
+    "Indicates the current position in the data set"
+    cursor: String!
+    hasMore: Boolean!
+    launches: [Launch]!
   }
 `;
 
