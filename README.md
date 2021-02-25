@@ -19,6 +19,7 @@ The app includes the following views:
 To populate these views, app's data graph is connected to two data sources: a REST API and a SQLite database.
 The [SpaceX-API](https://github.com/r-spacex/SpaceX-API) is a read-only data source for fetching launch data. The [SQLite database](https://www.sqlite.org/index.html) is used as a writable data source that allows us to store application data, such as user identities and seat reservations. [Sequelize](https://sequelize.org/) is used for ORM.
 
+
 For more details take a look at [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html).
 
 ## File structure
@@ -42,3 +43,14 @@ and
 ```bash
 cd final/client && npm i && npm start
 ```
+
+### Configure deployed graph (optionally)
+
+<ol>
+  <li>From your studio homepage (https://studio.apollographql.com/), click <b>New Graph</b> in the upper right.</li>
+  <li>Provide a name for your graph and set the <b>Graph type</b> to <b>Deployed</b>.</li>
+  <li>Click <b>Next</b>. A dialog appears instructing you to register your schema.</li>
+  <li>Create a <b>.env</b> file in /server directory and paste the environment variables from the dialog.</li>
+</ol>
+
+For more details take a look at this [page](https://www.apollographql.com/docs/tutorial/production/).
