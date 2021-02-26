@@ -3,6 +3,7 @@ import { gql, useMutation } from "@apollo/client";
 
 import { LoginForm, Loading } from "../components";
 import * as LoginTypes from "./__generated__/login";
+import { isLoggedInVar } from "../cache";
 
 export const LOGIN_USER = gql`
   mutation Login($email: String!) {
@@ -25,6 +26,7 @@ export default function Login() {
         // time the user visits our application
         localStorage.setItem("token", login.token as string);
         localStorage.setItem("userId", login.id as string);
+        isLoggedInVar(true);
       }
     },
   });
