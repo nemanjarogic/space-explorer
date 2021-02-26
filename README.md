@@ -4,7 +4,7 @@ Space Explorer is a full-stack & GraphQL-powered app built using ReactJS and Apo
 
 This is an interactive app for reserving a seat on an upcoming SpaceX launch. Think of it as an Airbnb for space travel! All of the data is real, thanks to the [SpaceX-API](https://github.com/r-spacex/SpaceX-API).
 
-![Space explorer](https://www.apollographql.com/docs/a81f37ed9dd7c56e7eb9ee3b52769e8d/space-explorer.png "Space explorer")
+![Space explorer](https://raw.githubusercontent.com/nemanjarogic/space-explorer/main/client/public/homepage.png "Space explorer")
 
 The app includes the following views:
 
